@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import DsisplayEntries from "./Components/DisplayEntries"
+import DsisplayEntries from "./Components/DisplayEntries/DisplayEntries"
 import AddEntryForm from './Components/AddEntry/AddEntryForm';
 import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker';
+import './App.css';
 
 function App() {
 
@@ -13,11 +14,24 @@ function App() {
   }
 
   return (
-    <div>
-      <DsisplayEntries parentEntries = {entries}/>
-      <AddEntryForm addNewEntryProperty={addNewEntry}/>
-      <EntriesChartTracker parentEntries = {entries}/>
-
+    <div className='container-fluid'>
+      <div className='row'>
+        <h3 style={{margin:'1em'}}>Weight
+        <small className= 'text-muted'>Tracker</small></h3>
+        <div className='col-md-6'>
+          <div className='border-box'>
+            <DsisplayEntries parentEntries = {entries}/>
+          </div>
+          <div className='border-box'>
+            <AddEntryForm addNewEntryProperty={addNewEntry}/>
+          </div>
+        </div>      
+        <div className='col-md-6'>
+          <div className='border-box'>
+            <EntriesChartTracker parentEntries = {entries}/>  
+          </div>                          
+        </div>
+      </div>
     </div>
   );
 }
